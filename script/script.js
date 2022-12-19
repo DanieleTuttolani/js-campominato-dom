@@ -1,8 +1,54 @@
 const grid = document.getElementById("griglia");
 const btn = document.getElementById("wantPlay");
 
+
+
+
+
+
+//funzioni 
+
+function randomNumberAside (min , max , blacklist){
+   let random;
+    do{
+     random = Math.floor(Math.random()*(max + 1 - min) + min)
+   }while (blacklist.includes(random))
+
+   return random;
+}
+
+
+const usciti = [];
+
+for( let i = 0 ; i <= 5 ; i++){
+        const prova = randomNumberAside(1, 84 , usciti);
+        usciti.push(prova);
+        console.log(prova, usciti );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// punteggio 
+let score = 0 ; 
 //al click...
 let newCell;
+
 btn.addEventListener("click", function(){
 console.log("inizia il gioco!") 
     grid.classList.toggle("d-none")
@@ -13,8 +59,9 @@ console.log("inizia il gioco!")
         grid.appendChild(newCell);
         
         newCell.addEventListener("click" , function(){
-            this.classList.contains("clicked") ? this.classList.remove("clicked") : this.classList.add("clicked");
-            console.log(i);
+            score += 1;
+            this.classList.add("clicked");
+            console.log(i, score);
             
         })
     }
