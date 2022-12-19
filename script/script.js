@@ -32,28 +32,28 @@ console.log(bombs );
 // punteggio 
 let score = 0 ; 
 //al click...
-let newCell;
 
 btn.addEventListener("click", function(){
-console.log("inizia il gioco!") 
+    console.log("inizia il gioco!") 
     grid.classList.toggle("d-none")
     for(let i = 1 ; i <= 100 ; i++){
+        let newCell;
         newCell= document.createElement("div")
         newCell.classList.add("cell");
         newCell.append(i)
         grid.appendChild(newCell);
         
+        newCell.addEventListener("click" , function(){
+            if(newCell.includes([bombs])) {
+                this.classList.add("alt-clicked")
+            }else if(this != bombs) {
+                this.classList.add("clicked")
+                score += 1;
+            }
+            console.log(newCell);
+            
+        })
     }
-    newCell.addEventListener("click" , function(){
-        if(this == bombs) {
-            this.classList.add("alt-clicked")
-        }else if(this != bombs) {
-            this.classList.add("clicked")
-            score += 1;
-        }
-        console.log(newCell);
-        
-    })
     
     
 })
