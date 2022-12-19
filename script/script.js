@@ -18,30 +18,15 @@ function randomNumberAside (min , max , blacklist){
 }
 
 
-const usciti = [];
 
-for( let i = 0 ; i <= 5 ; i++){
-        const prova = randomNumberAside(1, 84 , usciti);
-        usciti.push(prova);
-        console.log(prova, usciti );
-    }
+// creo le bombe
+const bombs = [];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for( let i = 0 ; i <= 16 ; i++){
+        const exeBomb = randomNumberAside(1, 84 , bombs);
+        bombs.push(exeBomb);
+ }
+console.log(bombs );
 
 
 // punteggio 
@@ -58,13 +43,17 @@ console.log("inizia il gioco!")
         newCell.append(i)
         grid.appendChild(newCell);
         
-        newCell.addEventListener("click" , function(){
-            score += 1;
-            this.classList.add("clicked");
-            console.log(i, score);
-            
-        })
     }
+    newCell.addEventListener("click" , function(){
+        if(this == bombs) {
+            this.classList.add("alt-clicked")
+        }else if(this != bombs) {
+            this.classList.add("clicked")
+            score += 1;
+        }
+        console.log(newCell);
+        
+    })
     
     
 })

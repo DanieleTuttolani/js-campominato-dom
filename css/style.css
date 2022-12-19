@@ -38,6 +38,10 @@ body{
 .clicked{
     background-color: blue;
 }
+.alt-clicked{
+    background-color: red;
+    color: white;
+}
 
 .main-head{
     background-color: white;
