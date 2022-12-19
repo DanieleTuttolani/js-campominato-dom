@@ -44,15 +44,23 @@ btn.addEventListener("click", function(){
         grid.appendChild(newCell);
         
         newCell.addEventListener("click" , function(){
-            if(newCell.includes([bombs])) {
+            if(bombs.includes(i)) {
                 this.classList.add("alt-clicked")
-            }else if(this != bombs) {
+                alert( `che sfortuna hai perso, ecco il tuo puneggio ${score} `);
+                
+            }else {
                 this.classList.add("clicked")
                 score += 1;
+
             }
             console.log(newCell);
             
         })
+
+        if (score === 5){
+            alert(" congratulazioni hai vinto !")
+            
+        }
     }
     
     
