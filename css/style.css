@@ -50,9 +50,10 @@ body{
     align-content: center;
     justify-content: space-between;
 }
-img{
-    height: 100%;
-    width: 50px;
+.head-infoWrapper{
+    display: flex;
+}
+.head-infoWrapper img , h3{
     align-self: center;
 }
 #wantPlay{

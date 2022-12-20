@@ -35,6 +35,7 @@ let score = 0 ;
 
 btn.addEventListener("click", function(){
     console.log("inizia il gioco!") 
+    grid.innerHTML =""
     grid.classList.toggle("d-none")
     for(let i = 1 ; i <= 100 ; i++){
         let newCell;
@@ -50,17 +51,18 @@ btn.addEventListener("click", function(){
                 
             }else {
                 this.classList.add("clicked")
-                score += 1;
+                if (score === 4){
+                    score += 1 
+                    alert(" congratulazioni hai vinto !")
+                }else {
+                    score += 1;
+                }
 
             }
-            console.log(newCell);
+            console.log(score);
             
         })
 
-        if (score === 5){
-            alert(" congratulazioni hai vinto !")
-            
-        }
     }
     
     
